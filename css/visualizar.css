@@ -1,0 +1,62 @@
+@import url("cronograma.css");
+
+/* Cabeçalho da página (nome do cronograma + resumo + progresso) */
+.cabecalho-visualizar {
+    max-width: 1100px;
+    margin: 40px auto 24px;
+    padding: 28px 32px;
+    background: #fff6ea;
+    border-radius: 20px;
+    box-shadow: 0 8px 20px rgba(0,0,0,.08);
+}
+
+.cabecalho-visualizar .titulo-pagina {
+    font-family: var(--fonte-titulo-pagina);
+    font-weight: 600;
+    font-size: 34px;
+    color: var(--cor-azul-escuro);
+    margin-bottom: 10px;
+}
+
+.info-cronograma {
+    font-family: var(--fonte-kodchasan);
+    font-size: 15px;
+    color: var(--cor-verde-escuro);
+    margin-bottom: 20px;
+}
+
+.progresso-item {
+    max-width: 400px;
+}
+
+.progresso-item label {
+    display: flex;
+    justify-content: space-between;
+    font-family: var(--fonte-kodchasan);
+    font-size: 13px;
+    color: var(--cor-verde-escuro);
+    margin-bottom: 6px;
+}
+
+.progresso-barra {
+    background: #e9ecef;
+    border-radius: 6px;
+    height: 12px;
+    overflow: hidden;
+}
+
+#progresso-preenchido {
+    height: 100%;
+    background: linear-gradient(90deg, var(--cor-ciano), #5cd97c);
+    transition: width .4s ease;
+}
+
+@media (max-width: 600px) {
+    .cabecalho-visualizar {
+        padding: 22px 20px;
+        margin: 20px 12px;
+    }
+    .cabecalho-visualizar .titulo-pagina {
+        font-size: 26px;
+    }
+}

@@ -1,0 +1,296 @@
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Plus+Jakarta+Sans:wght@600&display=swap');
+
+:root {
+    --cor-bege: #f3f3e0;
+    --cor-ciano: #0097b2;
+    --cor-linho: #f2efe7;
+    --cor-azul-escuro: #133e87;
+    --cor-verde-escuro: #16404d;
+    --cor-preto: #000;
+
+    --fonte-inter: 'Inter', sans-serif;
+    --fonte-limelight: 'Limelight', cursive;
+    --fonte-kodchasan: 'Kodchasan', sans-serif;
+    --fonte-klee-one: 'Klee One', cursive;
+    --fonte-linden-hill: 'Linden Hill', serif;
+    --fonte-bowlby: 'Bowlby One', cursive;
+    --fonte-impact: 'Impact', 'Arial Narrow Bold', sans-serif;
+
+    /* Fontes usadas para a logo e para os títulos de página */
+    --fonte-logo: 'Syne', sans-serif;
+    --fonte-titulo-pagina: 'Plus Jakarta Sans', sans-serif;
+}
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+html{
+    height:100%;
+}
+body{
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+    font-family:var(--fonte-inter);
+    background:var(--cor-bege);
+    color:var(--cor-verde-escuro);
+}
+
+header{
+    background:var(--cor-bege);
+    padding:10px 20px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    box-shadow:0 2px 5px rgba(0,0,0,.1);
+}
+.logo{
+    font-family:var(--fonte-logo);
+    font-weight:800;
+    font-size:32px;
+    color:var(--cor-ciano);
+}
+nav{
+    display:flex;
+    gap:20px;
+    flex-wrap:wrap;
+    align-items:center;
+}
+nav a{
+    text-decoration:none;
+    color:var(--cor-verde-escuro);
+    font-family:var(--fonte-kodchasan);
+    font-weight:600;
+    transition:.3s;
+}
+nav a:hover,
+nav a.active{
+    color:var(--cor-ciano);
+}
+
+
+.main-content{
+    flex:1;
+    width:100%;
+    max-width:1200px;
+    margin:auto;
+    padding:50px 20px;
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    gap:60px;
+}
+.welcome-panel{
+    flex:1;
+    max-width:550px;
+    padding-top:30px;
+}
+.welcome-panel h1{
+    font-family:var(--fonte-titulo-pagina);
+    font-weight:600;
+    font-size:52px;
+    color:var(--cor-azul-escuro);
+    margin-bottom:20px;
+}
+.welcome-panel p{
+    font-family:var(--fonte-klee-one);
+    font-size:20px;
+    line-height:1.8;
+    margin-bottom:18px;
+}
+
+.login-card{
+    width:100%;
+    max-width:420px;
+    background:var(--cor-linho);
+    border-radius:28px;
+    padding:40px;
+    box-shadow:0 12px 35px rgba(0,0,0,.10);
+}
+.login-card h2{
+    text-align:center;
+    font-size:42px;
+    margin-bottom:30px;
+    color:var(--cor-verde-escuro);
+    font-family:var(--fonte-kodchasan);
+}
+.login-card input[type="text"],
+.login-card input[type="password"]{
+    width:100%;
+    padding:14px 15px;
+    margin-bottom:18px;
+    border:1px solid #ccc;
+    border-radius:10px;
+    outline:none;
+    font-size:16px;
+}
+.login-card input[type="submit"]{
+    width:100%;
+    padding:14px;
+    border:none;
+    border-radius:30px;
+    background:var(--cor-ciano);
+    color:#fff;
+    font-size:18px;
+    font-weight:bold;
+    cursor:pointer;
+    transition:.3s;
+}
+.login-card input[type="submit"]:hover{
+    background:#007a91;
+}
+.link-row{
+    text-align:center;
+    margin-top:20px;
+}
+.link-row a{
+    text-decoration:none;
+    color:var(--cor-verde-escuro);
+    font-weight:600;
+}
+.link-row a:hover{
+    color:var(--cor-ciano);
+}
+
+
+
+footer{
+    width:100%;
+    background:var(--cor-ciano);
+    color:#fff;
+    text-align:center;
+    padding:20px;
+    margin-top:auto;
+}
+
+footer p{
+    font-size:16px;
+}
+
+
+
+@media (max-width:900px){
+    header{
+        flex-direction:column;
+        align-items:center;
+        gap:15px;
+    }
+    nav{
+        justify-content:center;
+    }
+    .main-content{
+        flex-direction:column;
+        align-items:center;
+        text-align:center;
+        gap:40px;
+    }
+    .welcome-panel{
+        max-width:100%;
+        padding-top:0;
+    }
+    .welcome-panel h1{
+        font-size:42px;
+    }
+    .welcome-panel p{
+        font-size:18px;
+    }
+    .login-card{
+        max-width:420px;
+    }
+    footer{
+        padding:15px;
+    }
+    footer p{
+        font-size:14px;
+    }
+}
+
+@media (max-width:480px){
+    .logo{
+        font-size:28px;
+    }
+    nav{
+        gap:12px;
+    }
+    nav a{
+        font-size:14px;
+    }
+    .welcome-panel h1{
+        font-size:34px;
+    }
+    .welcome-panel p{
+        font-size:16px;
+    }
+    .login-card{
+        padding:25px;
+    }
+    .login-card h2{
+        font-size:34px;
+    }
+}
+.page-header{
+    width:100%;
+    max-width:1100px;
+    margin:50px auto;
+    padding:0 20px;
+    text-align:center;
+}
+
+.page-header h1{
+    font-family:var(--fonte-titulo-pagina);
+    font-weight:600;
+    font-size:48px;
+    color:var(--cor-azul-escuro);
+    margin-bottom:15px;
+}
+
+.page-header p{
+    max-width:760px;
+    margin:0 auto;
+    font-family:var(--fonte-klee-one);
+    font-size:20px;
+    line-height:1.8;
+    color:var(--cor-verde-escuro);
+}
+
+main{
+    width:100%;
+    flex:1;
+}
+
+/* Botões globais */
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 10px;
+    text-decoration: none;
+    font-family: var(--fonte-kodchasan);
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+    color: #fff;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    opacity: 0.9;
+}
+
+.btn-azul {
+    background: var(--cor-ciano);
+}
+
+.btn-verde {
+    background: #28a745;
+}
+
+.btn-vermelho {
+    background: #dc3545;
+}
+
+.btn-cinza {
+    background: #6c757d;
+}
