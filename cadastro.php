@@ -12,11 +12,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     * e o MySQL 8 valida que o valor inserido seja JSON válido. "visual, auditivo" (implode)
     * não é JSON válido; precisa ser json_encode(['visual','auditivo']) => '["visual","auditivo"]'. */ 
     $estilos = isset($_POST['estilo']) ? json_encode(array_values($_POST['estilo']), JSON_UNESCAPED_UNICODE) : json_encode([]);
-    $foto = '';
+
+    // Caminho padrão usado quando o usuário não envia foto (recurso fixo do site, pasta img/)
+    $foto = "img/imagem.jpg";
     $mensagem = '';
+
     if (isset($_FILES['foto']) && $_FILES['foto']['error'] == 0) {
         $nomeFoto = uniqid() . "-" . $_FILES['foto']['name'];
-        $diretorioImagens = __DIR__ . "/imagens/";
+        $diretorioImagens = __DIR__ . "/imagens/"; // pasta de uploads dos usuários
         if (!is_dir($diretorioImagens)) {
             mkdir($diretorioImagens, 0777, true); 
         }
@@ -58,7 +61,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <div class="form-box">
     <div class="profile-pic-container">
-        <img id="previewFoto" src="https://via.placeholder.com/80?text=Foto" alt="Foto de Perfil">
+        <img id="previewFoto" src="img/imagem.jpg" alt="Foto de Perfil">
     </div>
 
     <h2>Crie sua Conta</h2>
@@ -84,7 +87,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       </div>
 
       <label for="foto">Foto de perfil:</label>
-      <input type="file" name="foto" id="fotoInput">
+      <input type="file" name="foto" id="fotoInput" accept="image/*">
 
       <input type="submit" value="Cadastrar">
     </form>
@@ -126,8 +129,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       previewFoto.src = URL.createObjectURL(file);
       previewFoto.style.display = 'block'; // Garante que a imagem seja mostrada
     } else {
-      // Se nenhum arquivo for selecionado, volta para a imagem de placeholder
-      document.getElementById('previewFoto').src = "https://via.placeholder.com/80?text=Foto";
+      // Se nenhum arquivo for selecionado, volta para a imagem padrão
+      document.getElementById('previewFoto').src = "img/imagem.jpg";
     }
   });
 </script>
